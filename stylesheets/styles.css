@@ -1,0 +1,21 @@
+/* Welcome to Compass. Use this file to write IE specific override styles.
+ * Import this file using the following HTML or equivalent:
+ * <!--[if IE]>
+ *   <link href="/stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
+ * <![endif]--> */
+/* line 6, ../sass/styles.scss */
+body {
+  padding-top: 70px;
+}
+
+/* line 10, ../sass/styles.scss */
+.concurrent_users {
+  width: 450px;
+}
+
+/* line 14, ../sass/styles.scss */
+.charts {
+  min-width: 310px;
+  height: 400px;
+  margin: 0 auto;
+}

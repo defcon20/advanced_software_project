@@ -1,0 +1,19 @@
+{
+  "name": "advanced_software_project",
+  "description": "cloud providers",
+  "main": "",
+  "authors": [
+    "teweiliou <davidliou.cs@gmail.com>"
+  ],
+  "license": "MIT",
+  "moduleType": [],
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
