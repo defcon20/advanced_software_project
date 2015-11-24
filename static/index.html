@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="stylesheets/styles.css" rel="stylesheet">
+
+    <title>SilverLining</title>
+</head>
+<body>
+
+<!-- top navigation bar -->
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">SilverLining</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="top_navigation_main">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="teammembers.html">Team Members</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="title">SilverLining</div>
+
+
+<form class = "main-search form-inline navbar-form navbar-center" role = "search">
+
+    <div class = "form-group">
+        <select class="form-control">
+            <label class="sr-only" for="database">Database</label>
+            <option value="Cassandra">Cassandra</option>
+        </select>
+    </div>
+
+    <div class = "form-group">
+        <div class="concurrent_users input-group">
+            <label class="sr-only" for="budget">Budget</label>
+            <input type="text" name="budget" class = "form-control" placeholder = "Expected Budget">
+        </div>
+    </div>
+
+    <div class = "form-group">
+        <div class="concurrent_users input-group">
+            <label class="sr-only" for="concurrent_users">concurrent_users</label>
+            <input type="text" name="concurrent_users" class = "form-control" placeholder = "Number of Concurrent Users">
+        </div>
+    </div>
+
+    <input type="submit" value="Search" class="btn btn-primary">
+</form>
+
+<div class = "charts">
+    <div class = "node_3"></div>
+    <div class = "node_6"></div>
+    <div class = "node_9"></div>
+</div>
+
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="bower_components/highcharts/highcharts.js"></script>
+<script src="bower_components/highcharts/modules/exporting.js"></script>
+<script src="js/charts.js"></script>
+</body>
+</html>
