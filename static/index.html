@@ -17,7 +17,8 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container-fluid">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -39,36 +40,48 @@
 <div class="title">SilverLining</div>
 
 
-<form class = "main-search form-inline navbar-form navbar-center" role = "search">
+<form class="main-search form-inline navbar-form navbar-center" role="search">
 
-    <div class = "form-group">
+    <div class="form-group">
         <select class="form-control">
             <label class="sr-only" for="database">Database</label>
             <option value="Cassandra">Cassandra</option>
         </select>
     </div>
 
-    <div class = "form-group">
+    <div class="form-group">
         <div class="concurrent_users input-group">
             <label class="sr-only" for="budget">Budget</label>
-            <input type="text" name="budget" class = "form-control" placeholder = "Expected Budget">
+            <input id = "budget" type="text" name="budget" class="form-control" placeholder="Expected Budget">
         </div>
     </div>
 
-    <div class = "form-group">
+    <div class="form-group">
         <div class="concurrent_users input-group">
             <label class="sr-only" for="concurrent_users">concurrent_users</label>
-            <input type="text" name="concurrent_users" class = "form-control" placeholder = "Number of Concurrent Users">
+            <input id = "concurrent_users" type="text" name="concurrent_users" class="form-control" placeholder="Number of Concurrent Users">
         </div>
     </div>
 
-    <input type="submit" value="Search" class="btn btn-primary">
+    <input id="infoSubmit" type="submit" value="Search" class="btn btn-primary" />
 </form>
 
-<div class = "charts">
-    <div class = "node_3"></div>
-    <div class = "node_6"></div>
-    <div class = "node_9"></div>
+<div class="suggestion">
+    Suggestion
+    <ul>
+        <li class="provider">Provider:</li>
+        <li class="instance">Instance:</li>
+        <li class="performance">Performance:</li>
+        <li class="cost">Cost:</li>
+    </ul>
+</div>
+
+<div class="charts">
+    <div class="amazon"></div>
+    <div class="google"></div>
+    <div class="node_3"></div>
+    <div class="node_6"></div>
+    <div class="node_9"></div>
 </div>
 
 <script src="bower_components/jquery/dist/jquery.min.js"></script>

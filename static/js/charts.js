@@ -1,12 +1,144 @@
+$('#infoSubmit').click(function(){
+    var budget = $('#budget');
+    var concurrent_users = $('#concurrent_users');
+});
+//localhost:9999/api/search?budget=40&concurrent_users=20
 $.ajax({
-    url: "test.html",
+    url: "api/fakedata", //"api/data/" + budget + '/' + concurrent_users,
     context: document.body
-}).done(function() {
-    $( this ).addClass( "done" );
+}).done(function(result) {
+
+    var suggestion = {
+        provider: result.suggestion.best_provider,
+        instance: result.suggestion.optimal_instance,
+        performance: result.suggestion.throughput,
+        cost_servers: result.suggestion.cost
+    };
+
+    var nodes = {
+        AWS: {
+            n3: result.AWS.Node_3.users_throughput,
+            n6: result.AWS.Node_6.users_throughput,
+            n9: result.AWS.Node_9.users_throughput
+        },
+        Google: {
+            n3: result.Google.Node_3.users_throughput,
+            n6: result.Google.Node_6.users_throughput,
+            n9: result.Google.Node_9.users_throughput
+        }
+    };
+
+    display_suggestion(suggestion);
+    display_amazon(nodes);
+    display_google(nodes);
+    display_node_3_comparison(nodes);
+    display_node_6_comparison(nodes);
+    display_node_9_comparison(nodes);
 });
 
+function display_suggestion(suggestion){
+    $('.suggestion .provider').append(suggestion.provider);
+    $('.suggestion .instance').append(suggestion.instance);
+    $('.suggestion .performance').append(suggestion.performance);
+    $('.suggestion .cost').append(suggestion.cost_servers);
+}
 
-$(function () {
+function display_amazon(nodes){
+    $('.charts .amazon').highcharts({
+        title: {
+            text: 'Amazon Comparison', //logic for 1,3,5,7 nodes
+            x: -20 //center
+        },
+        subtitle: {
+            text: 'Benchmark Comparison',
+            x: -20
+        },
+        xAxis: {
+            title: {
+                text: 'Concurrent Users'
+            }
+        },
+        yAxis: {
+            title: {
+                text: 'Performance (Operations/Second)'
+            },
+            plotLines: [{
+                value: 0,
+                width: 1,
+                color: '#808080'
+            }]
+        },
+        tooltip: {
+            valueSuffix: ' Seconds'
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle',
+            borderWidth: 0
+        },
+        series: [{
+            name: '3 Node',
+            data: nodes.AWS.n3
+        }, {
+            name: '6 Node',
+            data: nodes.AWS.n6
+        },{
+            name: '9 Node',
+            data: nodes.AWS.n9
+        }]
+    });
+};
+
+function display_google(nodes){
+    $('.charts .google').highcharts({
+        title: {
+            text: 'Google Comparison', //logic for 1,3,5,7 nodes
+            x: -20 //center
+        },
+        subtitle: {
+            text: 'Benchmark Comparison',
+            x: -20
+        },
+        xAxis: {
+            title: {
+                text: 'Concurrent Users'
+            }
+        },
+        yAxis: {
+            title: {
+                text: 'Performance (Seconds)'
+            },
+            plotLines: [{
+                value: 0,
+                width: 1,
+                color: '#808080'
+            }]
+        },
+        tooltip: {
+            valueSuffix: ' Seconds'
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle',
+            borderWidth: 0
+        },
+        series: [{
+            name: '3 Node',
+            data: nodes.Google.n3
+        }, {
+            name: '6 Node',
+            data: nodes.Google.n6
+        },{
+            name: '9 Node',
+            data: nodes.Google.n9
+        }]
+    });
+};
+
+
+function display_node_3_comparison(nodes){
     $('.charts .node_3').highcharts({
         title: {
             text: '3 Node Comparison', //logic for 1,3,5,7 nodes
@@ -42,15 +174,15 @@ $(function () {
         },
         series: [{
             name: 'Amazon EC2',
-            data: [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6]
+            data: nodes.AWS.n3
         }, {
             name: 'Google Compute',
-            data: [-0.2, 0.8, 5.7, 11.3, 17.0, 22.0, 24.8, 24.1, 20.1, 14.1, 8.6, 2.5]
+            data: nodes.Google.n3
         }]
     });
-});
+};
 
-$(function () {
+function display_node_6_comparison(nodes){
     $('.charts .node_6').highcharts({
         title: {
             text: '6 Node Comparison', //logic for 1,3,5,7 nodes
@@ -86,15 +218,15 @@ $(function () {
         },
         series: [{
             name: 'Amazon EC2',
-            data: [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6]
+            data: nodes.AWS.n6
         }, {
             name: 'Google Compute',
-            data: [-0.2, 0.8, 5.7, 11.3, 17.0, 22.0, 24.8, 24.1, 20.1, 14.1, 8.6, 2.5]
+            data: nodes.Google.n6
         }]
     });
-});
+};
 
-$(function () {
+function display_node_9_comparison(nodes){
     $('.charts .node_9').highcharts({
         title: {
             text: '9 Node Comparison', //logic for 1,3,5,7 nodes
@@ -130,10 +262,10 @@ $(function () {
         },
         series: [{
             name: 'Amazon EC2',
-            data: [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6]
+            data: nodes.AWS.n9
         }, {
             name: 'Google Compute',
-            data: [-0.2, 0.8, 5.7, 11.3, 17.0, 22.0, 24.8, 24.1, 20.1, 14.1, 8.6, 2.5]
+            data: nodes.Google.n9
         }]
     });
-});
+};
