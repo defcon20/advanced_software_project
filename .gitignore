@@ -3,3 +3,4 @@
 static/.sass-cache
 static/sass
 node_modules
+server.js
