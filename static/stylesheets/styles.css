@@ -31,3 +31,8 @@ body {
   text-align: center;
   padding-top: 40px;
 }
+
+/* line 34, ../sass/styles.scss */
+.suggestion {
+  text-align: center;
+}

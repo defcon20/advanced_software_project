@@ -7,6 +7,7 @@
 
     <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="stylesheets/styles.css" rel="stylesheet">
+    <link href="stylesheets/suggestion.css" rel="stylesheet">
 
     <title>SilverLining</title>
 </head>
@@ -37,7 +38,7 @@
     </div>
 </nav>
 
-<div class="title">SilverLining</div>
+<div class="title"><img src = 'images/logo.png'></div>
 
 
 <form class="main-search form-inline navbar-form navbar-center" role="search">
@@ -66,15 +67,51 @@
     <input id="infoSubmit" type="submit" value="Search" class="btn btn-primary" />
 </form>
 
-<div class="suggestion">
-    Suggestion
-    <ul>
+<!--<div class="suggestion">
+    <h1>Suggestion</h1>
+    <ul class ='list-unstyled'>
         <li class="provider">Provider:</li>
         <li class="instance">Instance:</li>
         <li class="performance">Performance:</li>
         <li class="cost">Cost:</li>
     </ul>
+</div>-->
+
+<div class="container">
+    <h3></h3>
+    <hr>
+    <div class="row">
+        <div class="panel panel-primary filterable">
+            <div class="panel-heading">
+                <h3 class="panel-title">Suggested Provider Specifications</h3>
+                <div class="pull-right">
+                    <button class="btn btn-default btn-xs btn-filter"><span class="glyphicon glyphicon-filter"></span> Filter</button>
+                </div>
+            </div>
+            <table class="table">
+                <thead>
+                <tr class="filters">
+                    <th><input type="text" class="form-control" placeholder="Provider" disabled></th>
+                    <th><input type="text" class="form-control" placeholder="Instance" disabled></th>
+                    <th><input type="text" class="form-control" placeholder="Performance" disabled></th>
+                    <th><input type="text" class="form-control" placeholder="Cost" disabled></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class = 'suggestion'>
+                    <td class = 'provider'></td>
+                    <td class = 'instance'></td>
+                    <td class = 'performance'></td>
+                    <td class = 'cost'></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
+
+
+
 
 <div class="charts">
     <div class="amazon"></div>
@@ -89,5 +126,7 @@
 <script src="bower_components/highcharts/highcharts.js"></script>
 <script src="bower_components/highcharts/modules/exporting.js"></script>
 <script src="js/charts.js"></script>
+<script src="js/suggestion.js"></script>
 </body>
 </html>
+

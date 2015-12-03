@@ -3,8 +3,11 @@ $('#infoSubmit').click(function(){
     var concurrent_users = $('#concurrent_users');
 });
 //localhost:9999/api/search?budget=40&concurrent_users=20
+
 $.ajax({
     url: "api/fakedata", //"api/data/" + budget + '/' + concurrent_users,
+    type: 'GET',
+    dataType: 'json',
     context: document.body
 }).done(function(result) {
 
@@ -107,7 +110,7 @@ function display_google(nodes){
         },
         yAxis: {
             title: {
-                text: 'Performance (Seconds)'
+                text: 'Performance (Operations/Second)'
             },
             plotLines: [{
                 value: 0,
@@ -155,7 +158,7 @@ function display_node_3_comparison(nodes){
         },
         yAxis: {
             title: {
-                text: 'Performance (Seconds)'
+                text: 'Performance (Operations/Second)'
             },
             plotLines: [{
                 value: 0,
@@ -199,7 +202,7 @@ function display_node_6_comparison(nodes){
         },
         yAxis: {
             title: {
-                text: 'Performance (Seconds)'
+                text: 'Performance (Operations/Second)'
             },
             plotLines: [{
                 value: 0,
@@ -243,7 +246,7 @@ function display_node_9_comparison(nodes){
         },
         yAxis: {
             title: {
-                text: 'Performance (Seconds)'
+                text: 'Performance (Operations/Second)'
             },
             plotLines: [{
                 value: 0,

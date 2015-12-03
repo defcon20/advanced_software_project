@@ -1,0 +1,38 @@
+/* line 1, ../sass/suggestion.scss */
+.filterable {
+  margin-top: 15px;
+}
+
+/* line 4, ../sass/suggestion.scss */
+.filterable .panel-heading .pull-right {
+  margin-top: -20px;
+}
+
+/* line 7, ../sass/suggestion.scss */
+.filterable .filters input[disabled] {
+  background-color: transparent;
+  border: none;
+  cursor: auto;
+  box-shadow: none;
+  padding: 0;
+  height: auto;
+}
+
+/* line 15, ../sass/suggestion.scss */
+.filterable .filters input[disabled]::-webkit-input-placeholder {
+  color: #333;
+}
+
+/* line 18, ../sass/suggestion.scss */
+.filterable .filters input[disabled]::-moz-placeholder {
+  color: #333;
+}
+
+/* line 21, ../sass/suggestion.scss */
+.filterable .filters input[disabled]:-ms-input-placeholder {
+  color: #333;
+}
+
+.suggestion {
+  text-align: left;
+}
