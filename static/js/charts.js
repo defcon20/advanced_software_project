@@ -1,7 +1,26 @@
 $('#infoSubmit').click(function(){
     var budget = $('#budget');
     var concurrent_users = $('#concurrent_users');
-//localhost:9999/api/search?budget=40&concurrent_users=20
+    var errors = $('#errors');
+    var isValidString = isValid(concurrent_users.val().toString());
+
+    if(errors.val().length >1){
+        $('#errors').html('');
+        $('#errors').removeClass('alert alert-danger');
+    }
+
+    if(concurrent_users.val().length < 1){
+        $('#errors').html('Please make sure all fields are entered.');
+        $('#errors').addClass('alert alert-danger');
+        return false;
+    }
+
+    if(!isValidString){
+        $('#errors').html('Please make sure your input is correct.');
+        $('#errors').addClass('alert alert-danger');
+        return false;
+    }
+
 $.ajax({
     url: "http://localhost:8080/analyzer/analyzer?user="+concurrent_users.val().toString(), //"api/data/" + budget + '/' + concurrent_users,
     type: 'GET',
@@ -38,6 +57,16 @@ $.ajax({
 })
 
 });
+
+function isValid(str){
+//  return !/[return !/[~`!#$%\^&*+=\-\[\]\\';,/{}|\\":<>\?]/g.test(str);
+    return !/[a-zA-Z~`!#$%\^&*+=\-\[\]\\';,/{}|\\":<>\?]/g.test(str);
+}
+
+//function isNumeric(str){
+//    return !/([A-Z])\w+/g.test(str);
+//    console.log("executing isNumeric");
+//}
 
 function display_suggestion(suggestion){
     $('.suggestion .provider').html('');

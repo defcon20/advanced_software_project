@@ -36,3 +36,9 @@ body {
 .suggestion {
   text-align: center;
 }
+
+/* line 40, ../sass/styles.scss */
+#errors {
+  text-align: center;
+  font-weight: bold;
+}
