@@ -1,11 +1,9 @@
 $('#infoSubmit').click(function(){
     var budget = $('#budget');
     var concurrent_users = $('#concurrent_users');
-});
 //localhost:9999/api/search?budget=40&concurrent_users=20
-
 $.ajax({
-    url: "api/fakedata", //"api/data/" + budget + '/' + concurrent_users,
+    url: "http://localhost:8080/analyzer/analyzer?user="+concurrent_users.val().toString(), //"api/data/" + budget + '/' + concurrent_users,
     type: 'GET',
     dataType: 'json',
     context: document.body
@@ -37,9 +35,16 @@ $.ajax({
     display_node_3_comparison(nodes);
     display_node_6_comparison(nodes);
     display_node_9_comparison(nodes);
+})
+
 });
 
 function display_suggestion(suggestion){
+    $('.suggestion .provider').html('');
+    $('.suggestion .instance').html('');
+    $('.suggestion .performance').html('');
+    $('.suggestion .cost').html('');
+
     $('.suggestion .provider').append(suggestion.provider);
     $('.suggestion .instance').append(suggestion.instance);
     $('.suggestion .performance').append(suggestion.performance);
@@ -72,7 +77,7 @@ function display_amazon(nodes){
             }]
         },
         tooltip: {
-            valueSuffix: ' Seconds'
+            valueSuffix: ' Ops/Sec'
         },
         legend: {
             layout: 'vertical',
@@ -92,6 +97,7 @@ function display_amazon(nodes){
         }]
     });
 };
+
 
 function display_google(nodes){
     $('.charts .google').highcharts({
@@ -119,7 +125,7 @@ function display_google(nodes){
             }]
         },
         tooltip: {
-            valueSuffix: ' Seconds'
+            valueSuffix: ' Ops/Sec'
         },
         legend: {
             layout: 'vertical',
@@ -167,7 +173,7 @@ function display_node_3_comparison(nodes){
             }]
         },
         tooltip: {
-            valueSuffix: ' Seconds'
+            valueSuffix: ' Ops/Sec'
         },
         legend: {
             layout: 'vertical',
@@ -211,7 +217,7 @@ function display_node_6_comparison(nodes){
             }]
         },
         tooltip: {
-            valueSuffix: ' Seconds'
+            valueSuffix: ' Ops/Sec'
         },
         legend: {
             layout: 'vertical',
@@ -255,7 +261,7 @@ function display_node_9_comparison(nodes){
             }]
         },
         tooltip: {
-            valueSuffix: ' Seconds'
+            valueSuffix: ' Ops/Sec'
         },
         legend: {
             layout: 'vertical',
